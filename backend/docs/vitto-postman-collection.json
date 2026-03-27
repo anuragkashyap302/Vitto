@@ -1,0 +1,75 @@
+{
+  "info": {
+    "name": "Vitto Auth + Leads APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Send OTP",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": {
+          "raw": "{{baseUrl}}/api/auth/send-otp",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "auth", "send-otp"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"cto@abcnbfc.com\",\n  \"phone\": \"9876543210\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Verify OTP",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": {
+          "raw": "{{baseUrl}}/api/auth/verify-otp",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "auth", "verify-otp"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"cto@abcnbfc.com\",\n  \"phone\": \"9876543210\",\n  \"otp\": \"123456\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Create Lead",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{jwtToken}}" }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/leads",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "leads"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"cto@abcnbfc.com\",\n  \"phone\": \"9876543210\",\n  \"institution_name\": \"ABC NBFC Ltd\",\n  \"institution_type\": \"NBFC\",\n  \"city\": \"Mumbai\",\n  \"loan_book_size\": 450000000\n}"
+        }
+      }
+    },
+    {
+      "name": "Get Lead By ID",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{jwtToken}}" }],
+        "url": {
+          "raw": "{{baseUrl}}/api/leads/1",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "leads", "1"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:5000" },
+    { "key": "jwtToken", "value": "" }
+  ]
+}
