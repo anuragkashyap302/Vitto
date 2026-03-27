@@ -10,7 +10,7 @@
 | institution_name | VARCHAR(255) | NOT NULL | Organization legal/trade name |
 | institution_type | VARCHAR(100) | NOT NULL | Bank/NBFC/MFI/Fintech Lender |
 | city | VARCHAR(100) | NOT NULL | Primary operating city |
-| loan_book_size | NUMERIC(18,2) | NOT NULL | Loan book size in INR |
+| loan_book_size | NUMERIC(18,2) | NOT NULL | Loan boaok size in INR |
 | created_at | TIMESTAMPTZ | DEFAULT NOW() | Row creation timestamp |
 | status | VARCHAR(30) | DEFAULT 'new' | Lead state (`new`, `qualified`, etc.) |
 
