@@ -92,9 +92,9 @@ curl -X POST https://vitto-api.render.com/api/auth/verify-otp \
 # Response: {"message":"OTP verified successfully","token":"eyJhbGc..."}
 
 # 3. Create Lead (use token from above)
-curl -X POST https://vitto-api.render.com/api/leads \
+curl -X POST https://vitto-api-evgs.onrender.com/api/leads \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer eyJhbGc..." \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." \
   -d '{
     "email":"test@company.com",
     "phone":"9876543210",
@@ -103,6 +103,15 @@ curl -X POST https://vitto-api.render.com/api/leads \
     "city":"Mumbai",
     "loan_book_size":500000000
   }'
+
+# Response: {"message":"Lead created","data":{"id":1,...}}
+
+# 4. Get Lead by ID (use token from step 2, use id from step 3)
+curl https://vitto-api-evgs.onrender.com/api/leads/1 \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+
+# Response: {"data":{"id":1,"email":"test@company.com",...}}
 ```
+
 
 ---

@@ -46,6 +46,29 @@ Rendered on [frontend/src/pages/ArticlePage.jsx](frontend/src/pages/ArticlePage.
 8. **Fill organization details** → Complete
 
 See detailed testing guide: [TESTING_GUIDE_FOR_EVALUATORS.md](TESTING_GUIDE_FOR_EVALUATORS.md)
+
+## API Quick Test (cURL)
+
+Use your deployed backend base URL (example below uses `https://vitto-api-evgs.onrender.com`).
+
+### 4) Get Lead by ID
+(Use token from step 2 and lead id from step 3)
+
+```bash
+curl https://vitto-api-evgs.onrender.com/api/leads/1 \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+```
+
+**Expected Response:**
+```json
+{
+  "data": {
+    "id": 1,
+    "email": "test@company.com"
+  }
+}
+```
+
 ## 8) Deployment Guide
 
 ### Frontend (Vercel)
