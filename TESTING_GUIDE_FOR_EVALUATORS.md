@@ -1,8 +1,8 @@
 # Vitto Assignment - Testing Guide for Evaluators
 
 ## Live Demo URLs
-- **Frontend**: https://vitto.vercel.app
-- **Backend**: https://vitto-api.render.com
+- **Frontend**: https://vitto-psi.vercel.app/
+- **Backend**: https://vitto-api-evgs.onrender.com/health
 
 ---
 
@@ -10,7 +10,7 @@
 
 ### **Step 1: Go to Sign-Up Page**
 ```
-https://vitto.vercel.app/signup
+https://vitto-psi.vercel.app/signup
 ```
 
 ### **Step 2: Open Developer Tools**
@@ -19,7 +19,7 @@ https://vitto.vercel.app/signup
 - Keep it visible
 
 ### **Step 3: Fill Email & Phone**
-- Email: `yourname@college.com`
+- Email: `testexample@gmail.com`
 - Phone: `9876543210` (any 10-digit number)
 
 ### **Step 4: Click "Send OTP"**
@@ -47,17 +47,8 @@ https://vitto.vercel.app/signup
 
 ### **Step 6: Get the OTP (Option B - Via MongoDB)**
 
-If Network tab isn't clear:
 
-1. Go to https://cloud.mongodb.com
-2. Login to your Atlas account
-3. Click **Collections**
-4. Find database: `vitto_otp`
-5. Find collection: `otps`
-6. Search for your email
-7. Copy the `otp` field value
 
-### **Step 7: Enter OTP and Complete Sign-Up**
 
 1. Paste OTP in the form
 2. Click **"Verify OTP"**
@@ -73,30 +64,13 @@ If Network tab isn't clear:
 
 ## Verify Data Was Saved
 
-### **Check PostgreSQL**
-```bash
-psql -h dpg-xxxxx.singapore-postgres.render.com -U vitto_user -d vitto_5no9 -c "SELECT * FROM leads;"
-```
-Should see your lead record.
 
-### **Check MongoDB**
-Go to MongoDB Atlas → Collections → Find OTP record with your email
+
+
 
 ---
 
-## What Evaluators Will See
 
-| Step | What They See |
-|------|--------------|
-| Open sign-up | Clean form with email/phone fields |
-| Send OTP | Green toast: "OTP generated successfully" |
-| Check Network | Response with `"dev_otp": "XXXXXX"` |
-| Verify OTP | Form advances to Step 2 ✅ |
-| Enter org details | Form advances to Step 3 ✅ |
-| Submit | Success message with Lead ID ✅ |
-| Check DB | Data visible in PostgreSQL ✅ |
-
----
 
 ## API Testing (Advanced)
 
@@ -132,35 +106,3 @@ curl -X POST https://vitto-api.render.com/api/leads \
 ```
 
 ---
-
-## Troubleshooting
-
-### "OTP not showing in Network tab"
-- Make sure you have Network tab open BEFORE clicking Send OTP
-- Look for POST request to `/api/auth/send-otp`
-- Click it → Response tab → Ctrl+F "dev_otp"
-
-### "Lead not created"
-- Check if OTP was verified first
-- Check if all fields in organization form are filled
-- Check backend logs for errors
-
-### "Can't connect to backend"
-- Verify Render backend is running: https://vitto-api.render.com/health
-- Check CORS_ORIGIN in backend environment matches https://vitto.vercel.app
-
----
-
-## Quick Test Checklist
-
-- [ ] Opened https://vitto.vercel.app/signup
-- [ ] Opened DevTools Network tab
-- [ ] Entered email + phone
-- [ ] Clicked "Send OTP"
-- [ ] Found OTP in Network response
-- [ ] Pasted OTP and verified
-- [ ] Filled organization details
-- [ ] Submitted form
-- [ ] Saw success message with Lead ID
-- [ ] Checked PostgreSQL → Data visible
-- [ ] Checked MongoDB → OTP record exists

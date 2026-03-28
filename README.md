@@ -36,7 +36,7 @@ Rendered on [frontend/src/pages/ArticlePage.jsx](frontend/src/pages/ArticlePage.
 
 # Testing Instructions for Evaluators
 
-1. **Open**: https://vitto.vercel.app/signup
+1. **Open**: https://vitto-psi.vercel.app/signup
 2. **Press F12** → Go to Network tab
 3. **Enter email + phone** → Click "Send OTP"
 4. **Green toast appears** with instructions
@@ -57,7 +57,7 @@ See detailed testing guide: [TESTING_GUIDE_FOR_EVALUATORS.md](TESTING_GUIDE_FOR_
 5. Build command: `npm run build`
 6. Output directory: `dist`
 
-### Backend (Render or Railway)
+### Backend (Render)
 1. Create a new Web Service with root directory `backend`.
 2. Runtime: Node 18+.
 3. Build command: `npm install`
