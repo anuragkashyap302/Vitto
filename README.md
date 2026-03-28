@@ -34,6 +34,18 @@ Rendered on [frontend/src/pages/ArticlePage.jsx](frontend/src/pages/ArticlePage.
 - Mongo OTP model with TTL: [backend/src/models/Otp.js](backend/src/models/Otp.js)
 - Design notes: [backend/docs/database-design.md](backend/docs/database-design.md)
 
+# Testing Instructions for Evaluators
+
+1. **Open**: https://vitto.vercel.app/signup
+2. **Press F12** → Go to Network tab
+3. **Enter email + phone** → Click "Send OTP"
+4. **Green toast appears** with instructions
+5. **In Network tab** → Find `/api/auth/send-otp` response
+6. **Copy `dev_otp` value** (6-digit number)
+7. **Paste into OTP field** → Continue sign-up
+8. **Fill organization details** → Complete
+
+See detailed testing guide: [TESTING_GUIDE_FOR_EVALUATORS.md](TESTING_GUIDE_FOR_EVALUATORS.md)
 ## 8) Deployment Guide
 
 ### Frontend (Vercel)

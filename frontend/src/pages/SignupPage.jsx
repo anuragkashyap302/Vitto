@@ -48,12 +48,32 @@ function SignupPage() {
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.message || 'Failed to send OTP');
-      setStep(2);
+      
+      // Show success toast
+      showToast('✅ OTP generated successfully! Check Network tab (DevTools) for OTP code.', 'success');
+      
+      // Auto-advance to step 2
+      setTimeout(() => setStep(2), 1500);
     } catch (err) {
       setError(err.message);
+      showToast(`❌ Error: ${err.message}`, 'error');
     } finally {
       setLoading(false);
     }
+  };
+
+  const showToast = (message, type) => {
+    const toast = document.createElement('div');
+    toast.className = `fixed bottom-4 right-4 px-4 py-3 rounded-lg text-white font-medium z-50 ${
+      type === 'success' ? 'bg-emerald-500' : 'bg-red-500'
+    }`;
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+      toast.style.animation = 'fadeOut 0.3s ease-in-out forwards';
+      setTimeout(() => toast.remove(), 300);
+    }, 3000);
   };
 
   const verifyOtp = async () => {
