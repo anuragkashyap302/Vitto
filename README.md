@@ -123,3 +123,17 @@ Vitto/
     ├── .env.example
     └── package.json
 ```
+## AI Usage Disclosure
+
+This project uses:
+- Code generation: GitHub Copilot / Claude for boilerplate
+- Architecture guidance: AI consultation for database design
+- Documentation: AI-assisted writing for clarity
+
+However:
+- All **business logic** is original thinking
+- All **API design decisions** are mine
+- All **BFSI domain understanding** is my research
+- **Deployment and debugging** done by me
+
+I take full responsibility for all code quality and functionality.
