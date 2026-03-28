@@ -10,7 +10,7 @@ export const pgPool = new Pool({
   database: env.postgres.database,
   user: env.postgres.user,
   password: env.postgres.password,
-  ssl: env.postgres.ssl ? { rejectUnauthorized: false } : false,
+  ssl: env.postgres.ssl,
 });
 
 export async function connectDatabases() {
